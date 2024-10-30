@@ -1,7 +1,7 @@
 # Imgui-C-Sharp-App-Template
 Based off the video from Sweeds C#: https://youtu.be/5yVpcJo_jjs?si=R4CsNZ4RTE-dQmhk
 
-With some fixes I noticed it having and some minor code changes like adding a MainWindow class to handle the window and variables instead of in the renderer and some cpu optimizations.
+With some bug fixes I noticed that needed to be fixed, and having and some minor code changes like adding a MainWindow class to handle the window and variables instead of in the renderer and some cpu optimizations.
 
 ## Dependecies - 1.0.0
 - ClickableTransparentOverlay - 11.0.1
