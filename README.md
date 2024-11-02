@@ -20,11 +20,9 @@ Download the archive under releases and Copy/Move it to your Visual studio docum
 
 ## Usage
  - Once you setup your project open up the "MainWindow.cs"
- - Under the MainWindow() constructor change the text for the variable "windowName" to change the name of the window
- - Continue down to the "Show" function and start coding your menu in between the Imgui.Begin and Imgui.End
- - Add any variables needed for your menu under the comment "Menu Variables"
- - NOTE 1: If you want to change the title of the overlay when you hover over it in your taskbar then open up "Renderer.cs" and under the class you will see a variable named "overlayTitle" and change the value there.
- - NOTE 2: If you want to add more windows basically copy the structure of the "MainWindow.cs" class and look into the "Renderer.cs" to see how its rendered/shown and you will have no issues with values not getting set properly in the menus.
+ - Take a look at how its restructured (changed from 1.0.0)
+ - To create new windows you can now subclass the ImguiWindow class and in your constructor put "base()" with the paramaters you want in the prenthisis, and then override the Widgets Method to add widgets to the window
+ - No support for custom title bars (you will have to do that rendering yourself and will need to override the ImguiWindow.Renderer() method to do so)
 
 ## Changelog
 #### Version 1.0.0 - Oct 30, 2024
@@ -36,3 +34,9 @@ Download the archive under releases and Copy/Move it to your Visual studio docum
 
 - Fix: Imgui menus now properly change variables and do not reset after you enter values 
 - Fix: ClickableTransparentOverlay now properly scales to your monitor resolution automatically like the old versions used to do
+
+### Version 1.1.0 - Nov 2, 2024
+- Added ImguiWindow class
+- Updated MainWindow Example to use the new ImguiWindow class
+- Updated Renderer.cs for the new changes to the MainWindow Class
+- Updated SLN and CSProj to their latest
