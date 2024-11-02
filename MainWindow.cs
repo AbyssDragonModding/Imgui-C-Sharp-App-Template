@@ -1,46 +1,36 @@
+// Example Main Window class using the ImguiWindow as a base class
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Numerics;
+using ImGuiApp;
 using ImGuiNET;
 
 namespace ImGuiApp
 {
-    // Self contained Main Window for ImGui,
-    // feel free to use this as a template to add new windows to the application
-    public class MainWindow
+    internal class MainWindow : ImguiWindow
     {
-        private bool isOpen {  get; set; }
-        private string windowName { get; set; }
+        static Vector4 winColor;
 
-        // Menu variables
-
-        // Constructor
-        public MainWindow() 
-        { 
-            windowName = "Imgui App Template";
-        }
-        // Set the window show state, if its set to false on the instance the menu will not show
-        public void setWindowOpenState(bool isWindowOpenState)
+        static ImGuiStylePtr style;
+        public MainWindow() : base("Example Menu", new Vector2(300, 600), true, ImGuiWindowFlags.NoCollapse) 
         {
-            isOpen = isWindowOpenState;
+            style = ImGui.GetStyle();
+            winColor = new Vector4(1, 1, 1, 1);
         }
-        public void Show()
+        protected override void Widgets()
         {
-            if (isOpen)
+            try
             {
-                // Begin coding the menu
-                ImGui.Begin(windowName);
-                // Change the default window size so its not tiny
-                ImGui.SetWindowSize(new Vector2(800, 400));
-
-                // Additional widgets go here
-                ImGui.End();
+                ImGui.SetWindowFontScale(1.6f);
+                ImGui.TextColored(winColor, "Colored Text");
+                ImGui.ColorPicker4("##windowColor", ref winColor, ImGuiColorEditFlags.DisplayRGB);
+                if (ImGui.Button("Apply Styles"))
+                {
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
-
-
     }
 }
