@@ -1,38 +1,32 @@
-using ImGuiNET;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using ClickableTransparentOverlay;
-using ImGuiApp;
 
 namespace ImGuiApp
 {
-    public class Renderer : Overlay
+    internal class Renderer : Overlay
     {
-        // Overlay Variables
-        static string overlayTitle = "Imgui Template App";
-
-
-        // Import User32 DLL to get system Metrics
-        [DllImport("user32.dll")]
-        private static extern int GetSystemMetrics(int nIndex);
-        static int screenWidth = GetSystemMetrics(0); //Get width
-        static int screenHeight = GetSystemMetrics(1); // Get Height
-        
-        // Create a main window INstance
         private MainWindow mainWindow;
-        
-        // Arg 1: Overlay Window Name
-        // Arg 2: Window Width
-        // Arg 3: Window Height
-        public Renderer() : base(overlayTitle, screenWidth, screenHeight) 
+        // Change this variable to change the overlay title text
+        static string overlayTitle = "ImGui App Template";
+
+        // use user32 DLL to get system metrics and the screen size of the monitor
+        [DllImport("user32.dll")]
+        static extern int GetSystemMetrics(int nIndex);
+        // Using System metrics get the width/height of the monitor and set it to the overlayDimensions vector
+        static Vector2 overlayDimensions = new Vector2(GetSystemMetrics(0), GetSystemMetrics(1));
+
+        public Renderer() : base(overlayTitle, (int)overlayDimensions[0], (int)overlayDimensions[1])
         {
+            // Create the class instances for windows here
             mainWindow = new MainWindow();
-            mainWindow.setWindowOpenState(true);
         }
+
+        // Renderer method
         protected override void Render()
         {
-            // Load the main window class
-            mainWindow.Show();
+            // Load your class instances for the windows here
+            mainWindow.Render();
         }
     }
 }
