@@ -20,7 +20,7 @@ namespace ImGuiApp
             menuDimensions = menuSize;
             flags = windowFlags;
         }
-        public void Render()
+        public virtual void Render()
         {
             if (isOpen)
             {
