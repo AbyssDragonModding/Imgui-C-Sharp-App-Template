@@ -44,3 +44,6 @@ Download the archive under releases and Copy/Move it to your Visual studio docum
 ### Version 1.2.0 - Nov 5, 2024
 - Added ChildWindow class
 - Fixed project issues by uploading the updated CSProj and SLN file directly rather than copy and pasting the code from them
+
+### Version 1.2.2 - Nov 5, 2024
+- Changed the solution and csproj file names to be more generic
