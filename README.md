@@ -11,7 +11,7 @@ License: MIT
 - Fixed the menus resetting values thanks to the way the MainWindow.cs is set up and rendered (from memory the way he had it setup in the video they kept resetting variables and it would never take in the new values)
 - Changed program.cs to include a actual class and main function like regular C# code should be as well as some more threading logic to only use the cpu when its needed/requested (although small it lowers cpu usage overall)
 
-## Dependecies - 1.0.0
+## Dependecies - 1.2.0
 - ClickableTransparentOverlay - 11.0.1
 - ImGui.NET - 1.91.0.1
 
@@ -40,3 +40,7 @@ Download the archive under releases and Copy/Move it to your Visual studio docum
 - Updated MainWindow Example to use the new ImguiWindow class
 - Updated Renderer.cs for the new changes to the MainWindow Class
 - Updated SLN and CSProj to their latest
+
+### Version 1.2.0 - Nov 5, 2024
+- Added ChildWindow class
+- Fixed project issues by uploading the updated CSProj and SLN file directly rather than copy and pasting the code from them
